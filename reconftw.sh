@@ -3262,7 +3262,7 @@ function vulns() {
 		brokenLinks
 		fuzzparams
 		4xxbypass
-		test_ssl
+		# test_ssl	# CHANGE: remove ssl testing
 	fi
 }
 
