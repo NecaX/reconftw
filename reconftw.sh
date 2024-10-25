@@ -93,10 +93,6 @@ function tools_installed() {
 		printf "${bred} [*] Corsy			[NO]${reset}\n"
 		allinstalled=false
 	}
-	[ -f "${tools}/testssl.sh/testssl.sh" ] || {
-		printf "${bred} [*] testssl			[NO]${reset}\n"
-		allinstalled=false
-	}
 	[ -f "${tools}/CMSeeK/cmseek.py" ] || {
 		printf "${bred} [*] CMSeeK			[NO]${reset}\n"
 		allinstalled=false
@@ -2555,24 +2551,6 @@ function sqli() {
 
 }
 
-function test_ssl() {
-
-	mkdir -p {hosts,vulns}
-	if { [[ ! -f "$called_fn_dir/.${FUNCNAME[0]}" ]] || [[ $DIFF == true ]]; } && [[ $TEST_SSL == true ]]; then
-		start_func ${FUNCNAME[0]} "SSL Test"
-		[[ -n $multi ]] && [ ! -f "$dir/hosts/ips.txt" ] && echo "$domain" >"$dir/hosts/ips.txt"
-		${tools}/testssl.sh/testssl.sh --quiet --color 0 -U -iL hosts/ips.txt 2>>"$LOGFILE" >vulns/testssl.txt
-		end_func "Results are saved in vulns/testssl.txt" ${FUNCNAME[0]}
-	else
-		if [[ $TEST_SSL == false ]]; then
-			printf "\n${yellow}[$(date +'%Y-%m-%d %H:%M:%S')] ${FUNCNAME[0]} skipped in this mode or defined in reconftw.cfg ${reset}\n"
-		else
-			printf "${yellow}[$(date +'%Y-%m-%d %H:%M:%S')] ${FUNCNAME[0]} is already processed, to force executing ${FUNCNAME[0]} delete\n    $called_fn_dir/.${FUNCNAME[0]} ${reset}\n\n"
-		fi
-	fi
-
-}
-
 function spraying() {
 
 	mkdir -p vulns
@@ -3262,7 +3240,6 @@ function vulns() {
 		brokenLinks
 		fuzzparams
 		4xxbypass
-		# test_ssl	# CHANGE: remove ssl testing
 	fi
 }
 
