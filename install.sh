@@ -123,7 +123,7 @@ function banner() {
 	printf "   ░░   ░    ░   ░        ░ ░ ░ ▒     ░   ░ ░  ░ ░      ░        ░   ░  \n"
 	printf "    ░        ░  ░░ ░          ░ ░           ░                      ░    \n"
 	printf "                 ░                                                      \n"
-	printf " ${reconftw_version}                                         by @six2dez\n"
+	printf " ${reconftw_version}                                         by @six2dez, with Hacker Knights modifications\n"
 }
 
 # This function installs various tools and repositories as per the configuration.

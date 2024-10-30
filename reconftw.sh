@@ -32,7 +32,7 @@ function banner_graber() {
 function banner() {
 	banner_code=$(banner_graber)
 	printf "\n${bgreen}${banner_code}"
-	printf "\n ${reconftw_version}                                 by @six2dez${reset}\n"
+	printf "\n ${reconftw_version}                                 by @six2dez with Hacker Knights modifications${reset}\n"
 }
 
 function test_connectivity() {
