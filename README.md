@@ -39,11 +39,11 @@ reconFTW uses a lot of techniques (passive, bruteforce, permutations, certificat
 
 It also performs various vulnerability checks like XSS, Open Redirects, SSRF, CRLF, LFI, SQLi, SSL tests, SSTI, DNS zone transfers, and much more. Along with these, it performs OSINT techniques, directory fuzzing, dorking, ports scanning, screenshots, nuclei scan on your target.
 
-So, what are you waiting for? Go! Go! Go! :boom:
+So, what are you waiting for? Go! Go! Go! 💥
 
 ## 📔 Table of Contents
 
------------------
+---
 
 - [⚙️ Config file](#️-config-file)
 - [Usage](#usage)
@@ -58,9 +58,9 @@ So, what are you waiting for? Go! Go! Go! :boom:
     - [Perform recon with axiom integration](#perform-recon-with-axiom-integration)
     - [Perform all steps (whole recon + all attacks) a.k.a. YOLO mode](#perform-all-steps-whole-recon--all-attacks-aka-yolo-mode)
     - [Show help section](#show-help-section)
-- [Axiom Support :cloud:](#axiom-support-cloud)
+- [Axiom Support ☁️](#axiom-support-cloud)
 - [Sample video](#sample-video)
-- [:fire: Features :fire:](#fire-features-fire)
+- [🔥 Features 🔥](#fire-features-fire)
   - [Osint](#osint)
   - [Subdomains](#subdomains)
   - [Hosts](#hosts)
@@ -78,65 +78,33 @@ So, what are you waiting for? Go! Go! Go! :boom:
     - [Buymeacoffee](#buymeacoffee)
     - [DigitalOcean referral link](#digitalocean-referral-link)
     - [GitHub sponsorship](#github-sponsorship)
-  - [Thanks :pray:](#thanks-pray)
+  - [Thanks 🙏](#thanks-pray)
   - [Disclaimer](#disclaimer)
 
------------------
+---
 
 ## 💿 Installation
 
 ## a) Using a PC/VPS/VM
 
-> You can check out our wiki for the installation guide [Installation Guide](https://github.com/six2dez/reconftw/wiki/0.-Installation-Guide) :book:
+> You can check out our wiki for the installation guide [Installation Guide](https://github.com/six2dez/reconftw/wiki/0.-Installation-Guide) 📖
 
 - Requires [Golang](https://golang.org/dl/) > **1.15.0+** installed and paths correctly set (**$GOPATH**, **$GOROOT**)
 
 Important: if you are not running reconftw as root, run `sudo echo "${USERNAME}  ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/reconFTW`, to make sure no sudo prompts are required to run the tool and to avoid any permission issues.
 
 ```bash
-git clone https://github.com/six2dez/reconftw
+git clone https://github.com/necax/reconftw
 cd reconftw/
 ./install.sh
 ./reconftw.sh -d target.com -r
 ```
 
-## b) Docker Image 🐳 (3 options)
-
-- Pull the image
-
-```bash
-docker pull six2dez/reconftw:main
-```
-
-- Run the container
-
-```bash
-docker run -it --rm \
--v "${PWD}/OutputFolder/":'/reconftw/Recon/' \
-six2dez/reconftw:main -d example.com -r
-```
-
-- View results (they're NOT in the Docker container)
-
-  - As the folder you cloned earlier (named `reconftw`) is being renamed to `OutputFolder`, you'll have to go to that folder to view results.
-
-If you wish to:
-
-1. Dynamically modify the behaviour & function of the image
-2. Build your own container
-3. Build an Axiom Controller on top of the official image
-
-Please refer to the [Docker](https://github.com/six2dez/reconftw/wiki/4.-Docker) documentation.
-
-## c) Terraform + Ansible
-
-Yes! reconFTW can also be easily deployed with Terraform and Ansible to AWS, if you want to know how to do it, you can check the guide [here](Terraform/README.md)
-
 # ⚙️ Config file
->
-> You can find a detailed explanation of the configuration file [here](https://github.com/six2dez/reconftw/wiki/3.-Configuration-file) :book:
 
-- Through ```reconftw.cfg``` file the whole execution of the tool can be controlled.
+> You can find a detailed explanation of the configuration file [here](https://github.com/six2dez/reconftw/wiki/3.-Configuration-file) 📖
+
+- Through ``reconftw.cfg`` file the whole execution of the tool can be controlled.
 - Hunters can set various scanning modes, execution preferences, tools, config files, APIs/TOKENS, personalized wordlists and much more.
 
 <details>
@@ -374,40 +342,40 @@ reset='\033[0m'
 
 # Usage
 
-> Check out the wiki section to know which flag performs what all steps/attacks [Usage Guide](https://github.com/six2dez/reconftw/wiki/2.-Usage-Guide) :book:
+> Check out the wiki section to know which flag performs what all steps/attacks [Usage Guide](https://github.com/six2dez/reconftw/wiki/2.-Usage-Guide) 📖
 
 ## TARGET OPTIONS
 
-| Flag | Description |
-|------|-------------|
-| -d | Single Target domain *(example.com)*  |
-| -l | List of targets *(one per line)* |
-| -m | Multiple domain target *(companyName)*  |
-| -x | Exclude subdomains list *(Out Of Scope)* |
-| -i | Include subdomains list *(In Scope)* |
+| Flag | Description                             |
+| ---- | --------------------------------------- |
+| -d   | Single Target domain*(example.com)*     |
+| -l   | List of targets*(one per line)*         |
+| -m   | Multiple domain target*(companyName)*   |
+| -x   | Exclude subdomains list*(Out Of Scope)* |
+| -i   | Include subdomains list*(In Scope)*     |
 
 ## MODE OPTIONS
 
-| Flag | Description |
-|------|-------------|
-| -r | Recon - Full recon process (without attacks like sqli,ssrf,xss,ssti,lfi etc.) |
-| -s | Subdomains - Perform only subdomain enumeration, web probing, subdomain takeovers |
-| -p | Passive - Perform only passive steps |
-| -a | All - Perform whole recon and all active attacks |
-| -w | Web - Perform only vulnerability checks/attacks on particular target |
-| -n | OSINT - Performs an OSINT scan (no subdomain enumeration and attacks) |
-| -c | Custom - Launches specific function against target |
-| -h | Help - Show this help menu |
+| Flag | Description                                                                       |
+| ---- | --------------------------------------------------------------------------------- |
+| -r   | Recon - Full recon process (without attacks like sqli,ssrf,xss,ssti,lfi etc.)     |
+| -s   | Subdomains - Perform only subdomain enumeration, web probing, subdomain takeovers |
+| -p   | Passive - Perform only passive steps                                              |
+| -a   | All - Perform whole recon and all active attacks                                  |
+| -w   | Web - Perform only vulnerability checks/attacks on particular target              |
+| -n   | OSINT - Performs an OSINT scan (no subdomain enumeration and attacks)             |
+| -c   | Custom - Launches specific function against target                                |
+| -h   | Help - Show this help menu                                                        |
 
 ## GENERAL OPTIONS
 
-| Flag | Description |
-|------|-------------|
-| --deep | Deep scan (Enable some slow options for deeper scan, *vps intended mode*) |
-| -f | Custom config file path |
-| -o | Output directory |
-| -v | Axiom distributed VPS |
-| -q | Rate limit in requests per second |
+| Flag   | Description                                                                |
+| ------ | -------------------------------------------------------------------------- |
+| --deep | Deep scan (Enable some slow options for deeper scan,*vps intended mode*) |
+| -f     | Custom config file path                                                    |
+| -o     | Output directory                                                           |
+| -v     | Axiom distributed VPS                                                      |
+| -q     | Rate limit in requests per second                                          |
 
 ## Example Usage
 
@@ -455,9 +423,10 @@ reset='\033[0m'
 ./reconftw.sh -h
 ```
 
-# Axiom Support :cloud:
+# Axiom Support ☁️
 
 ![](https://i.ibb.co/Jzrgkqt/axiom-readme.png)
+
 > Check out the wiki section for more info [Axiom Support](https://github.com/six2dez/reconftw/wiki/5.-Axiom-version)
 
 - As reconFTW actively hits the target with a lot of web traffic, hence there was a need to move to Axiom distributing the work load among various instances leading to reduction of execution time.
@@ -468,7 +437,7 @@ reset='\033[0m'
 
 ![Video](images/reconFTW.gif)
 
-# :fire: Features :fire:
+# 🔥 Features 🔥
 
 ## Osint
 
@@ -593,7 +562,6 @@ make upload
 ### Manual
 
 - Create a private **blank** repository on `Git(Hub|Lab)` (Take into account size limits regarding Recon data upload)
-
 - Clone your project: `git clone https://gitlab.com/example/reconftw-data`
 - Get inside the cloned repository: `cd reconftw-data`
 - Create a new branch with an empty commit: `git commit --allow-empty -m "Empty commit"`
@@ -613,7 +581,7 @@ If you want to contribute to this project, you can do it in multiple ways:
 - Submitting an [issue](https://github.com/six2dez/reconftw/issues/new/choose) because you have found a bug or you have any suggestion or request.
 - Making a Pull Request from [dev](https://github.com/six2dez/reconftw/tree/dev) branch because you want to improve the code or add something to the script.
 
-## Need help? :information_source:
+## Need help? ℹ️
 
 - Take a look at the [wiki](https://github.com/six2dez/reconftw/wiki) section.
 - Check [FAQ](https://github.com/six2dez/reconftw/wiki/7.-FAQs) for commonly asked questions.
@@ -624,20 +592,19 @@ If you want to contribute to this project, you can do it in multiple ways:
 
 ### Buymeacoffee
 
-[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png">](https://www.buymeacoffee.com/six2dez)
+[`<img src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png">`](https://www.buymeacoffee.com/six2dez)
 
 ### DigitalOcean referral link
 
-<a href="https://www.digitalocean.com/?refcode=f362a6e193a1&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" /></a>
+`<a href="https://www.digitalocean.com/?refcode=f362a6e193a1&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg" alt="DigitalOcean Referral Badge" />``</a>`
 
 ### GitHub sponsorship
 
 [Sponsor](https://github.com/sponsors/six2dez)
 
-## Thanks :pray:
+## Thanks 🙏
 
 - Thank you for lending a helping hand towards the development of the project!
-
 - [C99](https://api.c99.nl/)
 - [CIRCL](https://www.circl.lu/)
 - [NetworksDB](https://networksdb.io/)
