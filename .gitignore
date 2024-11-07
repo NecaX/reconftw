@@ -11,3 +11,6 @@ test/
 *.zip
 .DS_Store
 reconftw.cfg-personal
+
+#Ignoring API keys files
+apikeys.cfg
