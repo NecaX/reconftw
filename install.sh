@@ -129,7 +129,7 @@ function banner() {
 # This function installs various tools and repositories as per the configuration.
 function install_tools() {
 
-	eval pip3 install -I -r requirements.txt $DEBUG_STD
+	eval pip3 install -I -r requirements.txt --break-system-packages $DEBUG_STD
 
 	printf "${bblue} Running: Installing Golang tools (${#gotools[@]})${reset}\n\n"
 	go env -w GO111MODULE=auto
@@ -195,10 +195,10 @@ function install_tools() {
 		fi
 		if ([[ -z $is_installed ]] && [[ $upgrade_tools == "false" ]]) || [[ $upgrade_tools == "true" ]]; then
             if [[ -s "requirements.txt" ]]; then
-                eval $SUDO pip3 install -r requirements.txt $DEBUG_STD
+                eval $SUDO pip3 install -r requirements.txt --break-system-packages $DEBUG_STD
             fi
             if [[ -s "setup.py" ]]; then
-                eval $SUDO pip3 install . $DEBUG_STD
+                eval $SUDO pip3 install . --break-system-packages $DEBUG_STD
             fi
             if [[ "massdns" == "$repo" ]]; then
                 eval make $DEBUG_STD && strip -s bin/massdns && eval $SUDO cp bin/massdns /usr/local/bin/ $DEBUG_ERROR
