@@ -3867,6 +3867,7 @@ while true; do
 	'--help' | '-h' | *)
 		# echo "Unknown argument: $1"
 		. ./reconftw.cfg
+		. ./apikeys.cfg
 		banner
 		help
 		tools_installed

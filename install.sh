@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 . ./reconftw.cfg
+. ./apikeys.cfg
 
 dir=${tools}
 double_check=false
